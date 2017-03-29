@@ -26,9 +26,9 @@ var cfs = []CommandFunc{
  * c: Map of command names to help string
  */
 func Command(s *discordgo.Session, m *discordgo.MessageCreate, c map[string]string) (bool, string) {
-    p := strings.Split(m.Content, " ")
+    if len(m.Content) > 0 && m.Content[0] == '+' {
+        p := strings.Split(m.Content, " ")
 
-    if p[0][0] == '+' {
         if strings.Contains(strings.ToLower(p[0]), "help") {
             var sc *string
 
