@@ -30,12 +30,11 @@ func Command(s *discordgo.Session, m *discordgo.MessageCreate, c map[string]stri
         p := strings.Split(m.Content, " ")
 
         if strings.Contains(strings.ToLower(p[0]), "help") {
-            var sc *string
+            var sc *string = nil
 
             if len(p) > 1 {
-                *sc = strings.ToLower(p[1])
-            } else {
-                sc = nil
+                temp := strings.ToLower(p[1])
+                sc = &temp
             }
 
             HelpCommand(s, m, sc, c)
