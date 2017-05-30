@@ -14,6 +14,7 @@ type CommandFunc func(p []string) (bool, string)
 var cfs = []CommandFunc{
     commands.IdolHellCommand,
     commands.TodayCommand,
+    commands.SpongebobCommand,
 }
 
 /*
